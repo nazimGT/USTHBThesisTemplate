@@ -1,0 +1,48 @@
+\chapter{Titre du chapitre 1}
+\label{ch:introduction}
+
+% You can use \selectlanguage{english}, \selectlanguage{french}, or \selectlanguage{arabic}
+% to switch between languages within the document.
+
+\section{Titre de la section}
+
+Ceci est le chapitre d'introduction. Vous pouvez écrire votre contenu ici.
+Ceci est un exemple d'utilisation de la bibliographie \cite{Knuth1984}.
+
+Un exemple de graphe simple est présenté dans la Figure~\ref{fig:graphsimple}.
+\begin{figure}[ht]
+    \centering
+    \begin{tikzpicture}[every circle node/.style={draw, ultra thick, color=Onyx, circle, fill=PictonBlue!50},
+        node distance=1.75cm]
+        % Islands
+        \node[draw, circle] (A) {$v_1$};
+        \node[draw, circle, above of= A] (B) {$v_2$};
+        \node[draw, circle, above of= B] (C) {$v_3$};
+        \node[draw, circle, right of= B] (D) {$v_4$};
+    
+        % Bridges
+        \draw[ultra thick, color=Onyx, bend left=30]    (A) to[out=45, in=135]  node[midway, left]  {$e_1$} (B);
+        \draw[ultra thick, color=Onyx, bend right=30]   (A) to[out=-45, in=230] node[midway, right] {$e_2$} (D); 
+
+        \draw[ultra thick, color=Onyx, bend left=30]    (B) to[out=45, in=135]  node[midway, left]  {$e_3$} (C); 
+        \draw[ultra thick, color=Onyx]                  (B) --                  node[midway, above] {$e_4$} (D);
+
+        \draw[ultra thick, color=Onyx, bend left=30]    (C) to[out=45, in=135]node[midway, right] {$e_5$} (D); 
+
+    
+    \end{tikzpicture}
+    \caption{Graphe simple de 4 sommets et 5 arêtes}\label{fig:graphsimple}
+\end{figure}
+
+Ceci est un exemple d'algorithme présenté dans l'Algorithme~\ref{alg:P1}.
+
+\begin{algorithm}[!ht]
+    \caption{(Algorithme $A_1$)}\label{alg:P1}
+    \KwData{$a, b, c$}
+    \KwResult{$w$}
+    
+    \For{$i = 1:n-1$}{
+        $w_i = a_{i+1} + b_i + c_i$\;
+    }
+\end{algorithm}
+

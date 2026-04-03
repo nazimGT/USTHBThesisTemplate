@@ -1,0 +1,170 @@
+\documentclass[12pt, a4paper]{report}
+
+% ============================================================================
+% DOCUMENT STRUCTURE
+% ============================================================================
+% For XeTeX/LuaTeX with Arabic support
+\usepackage{polyglossia}
+\setmainlanguage{french}
+\setotherlanguages{english, arabic}
+
+% Set default fonts
+\usepackage{fontspec}
+
+% Define main font (supports English and French)
+\setmainfont{Fira Sans}
+\setsansfont[BoldFont={Fira Sans SemiBold}]{Fira Sans Book}
+
+% Define Arabic font (required for Arabic support)
+\newfontfamily\arabicfont[Script=Arabic]{Segoe UI}
+
+\usepackage[protrusion=true,final,nopatch=footnote]{microtype}
+\setlength\tolerance{2000 pt}
+
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+
+\usepackage{natbib}
+\bibliographystyle{plainnat}
+
+% ============================================================================
+% PAGE LAYOUT
+% ============================================================================
+\usepackage[
+    top=2.5cm, bottom=3cm, 
+    left=2.5cm, right=2cm, 
+    headheight=15pt, headsep=10pt
+    ]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% ============================================================================
+% COLORS AND LINKS
+% ============================================================================
+\usepackage{xcolor}     %package des couleurs
+
+\definecolor{USTHB_Blue}    {HTML}  {3452b5}
+\definecolor{Onyx}          {HTML}  {3A3E42}
+\definecolor{PictonBlue}    {HTML}  {14AAFF}
+
+\usepackage{hyperref}   %package des lienS
+
+% ============================================================================
+% MATH AND FIGURES
+% ============================================================================
+\usepackage{amssymb}    %symboles mathématiques
+\usepackage{amsmath}    %équations mathématiques
+\usepackage{amsthm}     %théorèmes
+\usepackage{amsfonts}   %police des caractères mathématique
+
+\newtheorem{theorem}{Théorème}
+\newtheorem{cor}{Corollaire}
+\newtheorem{lemme}{Lemme}
+\newtheorem{proposition}{Proposition}
+\newtheorem{definition}{Définition}
+\newtheorem{example}{Exemple}
+\newtheorem{remark}{Remarque}
+\newtheorem{cj}{Conjecture}
+\newtheorem{claim}{Claim}
+\newtheorem{property}{Propriété}
+
+
+\newcommand{\npd}{\ensuremath{\mathcal{NP}}\text{-Difficile}}
+
+\usepackage{graphicx}   
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+
+% ============================================================================
+% ALGORITHMS AND TABLES
+% ============================================================================
+\usepackage[french,onelanguage,linesnumbered,ruled,vlined]{algorithm2e}%
+\SetKwComment{Comment}{/* }{ */}
+
+\usepackage{multirow}   %jumeler les lignes
+\usepackage{multicol}   %jumeler les colonnes
+\renewcommand{\arraystretch}{1.25}
+\renewcommand{\topfraction}{0.95}
+
+% ============================================================================
+% DOCUMENT STYLE
+% ============================================================================
+\titleformat{\chapter}[display]{\normalfont\huge\bfseries\centering}{\chaptertitlename\ \thechapter}{20pt}{\Huge}%
+
+% ============================================================================
+% DOCUMENT INFORMATION
+% ============================================================================
+\title{Your Thesis Title}
+\author{Your Name}
+\newcommand{\ordernumber}{../../..}
+\date{\today}
+
+% ============================================================================
+% BEGIN DOCUMENT
+% ============================================================================
+\begin{document}
+
+% Title Page (separate file)
+\input{titlepage}
+
+% Thanks, table of contents and lists of figures/tables/algorithms
+\pagenumbering{Roman}
+
+\input{Thanks.tex}
+
+\tableofcontents
+
+\addcontentsline{toc}{chapter}{Liste des Figures}
+\listoffigures
+
+\addcontentsline{toc}{chapter}{Liste des Tables}
+\listoftables
+
+\addcontentsline{toc}{chapter}{Liste des Algorithmes}
+\listofalgorithms
+
+\hypersetup{pageanchor=false}
+
+% ============================================================================
+% MAIN CONTENT - Each chapter in a separate file
+% ============================================================================
+\clearpage
+\pagenumbering{arabic}
+\setcounter{page}{1}
+\hypersetup{pageanchor=true}
+
+% Introduction
+\input{chapters/_Introduction.tex}
+
+% Chapter 1
+\input{chapters/chapter1}
+
+% Chapter 2
+\input{chapters/chapter2}
+
+% Chapter 3
+\input{chapters/chapter3}
+
+% Conclusion
+\input{chapters/Conclusion.tex}
+
+% ============================================================================
+% BIBLIOGRAPHY (optional)
+% ============================================================================
+\addcontentsline{toc}{chapter}{Bibliographie}
+\bibliography{references}
+
+% ============================================================================
+% ABSTRACTS - In three languages (English, French, Arabic)
+% ============================================================================
+\hypersetup{pageanchor=false}
+\clearpage
+
+\input{abstracts/abstract_en}
+
+\input{abstracts/abstract_fr}
+
+\input{abstracts/abstract_ar}
+
+\end{document}

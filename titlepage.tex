@@ -1,0 +1,95 @@
+\begin{titlepage}
+    \pagestyle{empty}
+    \pagenumbering{gobble}
+
+    \begin{flushright}
+        \vspace*{-15mm}
+        N° d'ordre : \ordernumber
+        \vspace*{-10mm}
+    \end{flushright}
+
+    \newcommand{\HRule}{\textcolor{USTHB_Blue}{\rule{\linewidth}{0.75mm}}} % Defines a new command for the horizontal lines, change thickness here
+    \begin{tikzpicture}[remember picture,overlay]
+        \draw[USTHB_Blue,ultra thick, rounded corners]
+            ([yshift=-1cm,xshift=1cm]current page.north west)--
+            ([yshift=-1cm,xshift=-1cm]current page.north east)--
+            ([yshift=1cm,xshift=-1cm]current page.south east)--
+            ([yshift=1cm,xshift=1cm]current page.south west)--cycle;
+            
+        \draw[USTHB_Blue,ultra thick, rounded corners]
+            ([yshift=-.96cm,xshift=.96cm]current page.north west)--
+            ([yshift=-.96cm,xshift=-.96cm]current page.north east)--
+            ([yshift=.96cm,xshift=-.96cm]current page.south east)--
+            ([yshift=.96cm,xshift=.96cm]current page.south west)--cycle;
+            
+        \draw[USTHB_Blue,very thick, rounded corners]
+                ([yshift=-1.175cm,xshift=1.175cm]current page.north west)--
+        ([yshift=-1.175cm,xshift=-1.175cm]current page.north east)--
+        ([yshift=1.175cm,xshift=-1.175cm]current page.south east)--
+        ([yshift=1.175cm,xshift=1.175cm]current page.south west)--cycle;
+    \end{tikzpicture}
+    \centering
+
+    % University/Institution Name
+    {\bfseries
+        République Algérienne Démocratique et Populaire\\
+        Ministère de l'Enseignement Supérieur et de la Recherche Scientifique\\
+        Université des Sciences et de la Technologie Houari Boumediene\\
+        Faculté de \dots\\
+        Département de \dots\\
+    }
+    
+    \bigskip
+
+    \includegraphics[height=5cm]{img/USTHB_Logo.png}
+    
+    \bigskip
+
+    Mémoire de master
+    
+    \medskip
+    
+    Présentée pour l'obtention d'un master en : \dots
+    
+    \medskip
+    
+    Spécialité : \dots\\[1cm]
+    
+    % Author
+    {Par \par}
+    \makeatletter
+    \mbox{\Large \@author \par}
+    \makeatother
+    \medskip
+    
+    % Thesis Title
+    
+    \emph{Sujet}
+    \medskip
+    \HRule
+
+    %\bigskip
+    {\LARGE 
+        \begin{onehalfspace}
+            \makeatletter
+            \mbox{\textbf{\@title} \par}
+            \makeatother
+        \end{onehalfspace} \par}
+    
+    \HRule\\
+    \bigskip
+    
+    % Date    
+    \emph{Soutenu le \@date, devant le jury composé de :}\\[.5cm]
+
+    \begin{tabular}{l l l}
+        M. XXXXXXXXXXXXXXXX     & Grade, Université     & Président\\
+        M. XXXXXXXXXXXXXXXX     & Grade, Université     & Rapporteur\\
+        M. XXXXXXXXXXXXXXXX     & Grade, Université     & Examinateur\\
+        M. XXXXXXXXXXXXXXXX     & Grade, Université     & Invité
+    \end{tabular}
+    \vfill
+    
+\end{titlepage}
+
+\newpage
